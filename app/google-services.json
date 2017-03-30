@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "336026054713",
+    "firebase_url": "https://broken-recipes-app.firebaseio.com",
+    "project_id": "broken-recipes-app",
+    "storage_bucket": "broken-recipes-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336026054713:android:630ddd9d36e921dd",
+        "android_client_info": {
+          "package_name": "com.team.java.brokenrecipes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336026054713-6oo7r96og2q29gqp9oeki4m8uq0uqstl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrjOOdVoQNPNwf_wjRJr4-V1G9pIUUOe8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
