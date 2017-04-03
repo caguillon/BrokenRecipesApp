@@ -18,4 +18,11 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, PostActivity.class);
         startActivity(i); // brings up the second activity
     }
+
+    // When you click the 'browse' button, it launches Feed.java
+    public void onClickBtnBrowse() {
+        // first parameter is the context, second is the class of the activity to launch
+        Intent i = new Intent(MainActivity.this, Feed.class);
+        startActivity(i); // brings up the second activity
+    }
 }
