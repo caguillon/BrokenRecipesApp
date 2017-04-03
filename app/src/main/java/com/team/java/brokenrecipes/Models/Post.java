@@ -1,12 +1,15 @@
 package com.team.java.brokenrecipes.Models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 //add the import for firebase here!!!
-import org.parceler.Parcel;
+/*import org.parceler.Parcel;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Parcel
+@Parcel*/
 public class Post extends Object{
     //since our variables are public, we dont' need setters and getters!
     public String uid; //do I need this?
@@ -39,7 +42,7 @@ public class Post extends Object{
     }
 
     //firsebase stuff- need to double check with actual firebase guidlines as they may have changed
-    @Exclude
+    //@Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("uid", uid);
