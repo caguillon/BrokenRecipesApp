@@ -13,7 +13,7 @@ public class PostActivity extends AppCompatActivity {
     }
 
     // When done with PostActivity, it takes you back to MainActivity.java
-    public void onSubmit(View v) {
+    public void onClickBtnSubmitPost(View v) {
         // closes the activity and returns to first screen
         this.finish();
     }
