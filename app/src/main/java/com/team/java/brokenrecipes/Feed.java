@@ -1,3 +1,12 @@
+
+/*
+frank will be working on the array adapter for our app
+
+*/
+
+
+
+
 package com.team.java.brokenrecipes;
 
 import android.support.v7.app.AppCompatActivity;
