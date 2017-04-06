@@ -10,22 +10,37 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Browse"
+        android:id="@+id/btnBrowse"
+        android:onClick="onClickBtnBrowse"
+        android:layout_marginBottom="196dp"
+        android:background="@drawable/common_plus_signin_btn_text_dark_focused"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
         android:text="Create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/btnCreate"
-        android:onClick="onClickBtnCreate"
+        android:layout_marginBottom="21dp"
         android:layout_above="@+id/btnBrowse"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="56dp" />
+        android:background="@drawable/common_plus_signin_btn_text_dark_focused" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Browse"
-        android:id="@+id/btnBrowse"
-        android:onClick="onClickBtnBrowse"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/btnCreate"
-        android:layout_alignStart="@+id/btnCreate"
-        android:layout_marginBottom="195dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/buttonVideo"
+        android:background="@android:color/transparent" />
+
+    <VideoView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/videoView"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
     <!--Daniela-->
