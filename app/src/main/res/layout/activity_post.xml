@@ -57,12 +57,15 @@
         android:layout_above="@+id/btnSubmitPost" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/btnSubmitPost"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickBtnSubmitPost" />
+        android:onClick="onClickBtnSubmitPost"
+        android:textStyle="normal|bold|italic"
+        android:textIsSelectable="false"
+        android:background="drawable/button_file"
+        android:textSize="18sp" />
 </RelativeLayout>
     <!--Daniela-->

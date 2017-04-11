@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
     }
-//CREATE
+    //CREATE
     public void moveButton1(){
         View btnCreate = findViewById(R.id.btnCreate);
         /*
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//BROWSE
+    //BROWSE
     public void moveButton2(){
         View btnBrowse = findViewById(R.id.btnBrowse);
         /*
