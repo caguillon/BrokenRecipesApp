@@ -3,28 +3,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/food"
-    tools:context="com.team.java.brokenrecipes.MainActivity">
+    tools:context="com.team.java.brokenrecipes.MainActivity"
+    android:id="@+id/recipesLayout">
     <!---->
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create"
-        android:id="@+id/btnCreate"
-        android:onClick="onClickBtnCreate"
-        android:layout_above="@+id/btnBrowse"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="56dp" />
+        android:id="@+id/buttonVideo"
+        android:background="@android:color/transparent" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Browse"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
         android:id="@+id/btnBrowse"
         android:onClick="onClickBtnBrowse"
+        android:background="@drawable/food"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textAllCaps="false"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textStyle="normal|bold|italic"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/btnCreate"
-        android:layout_alignStart="@+id/btnCreate"
-        android:layout_marginBottom="195dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Create"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:id="@+id/btnCreate"
+        android:background="@drawable/food"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textCursorDrawable="@color/colorPrimary"
+        android:textIsSelectable="false"
+        tools:textStyle="bold|italic"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <VideoView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/videoView"
+        android:fadingEdge="horizontal|vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <!---android:textSize="30sp"-->
+
 </RelativeLayout>
+    <!--Daniela-->
