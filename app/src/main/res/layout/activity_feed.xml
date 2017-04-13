@@ -17,4 +17,3 @@
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true" />
 </RelativeLayout>
-<!--Frank will be working on the array adapter and feeds-->
