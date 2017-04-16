@@ -11,6 +11,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.team.java.brokenrecipes.Models.Post;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class PostActivity extends AppCompatActivity {
@@ -44,14 +45,23 @@ public class PostActivity extends AppCompatActivity {
         etRecipe = (EditText) findViewById(R.id.etRecipe);
     }
 
+    //this method works using firebase; info is uploaded to database!
+    //FIXME: check if this works!!
     private void composeNewPost(String title, String name, String time, String recipe) {
+        String key = mDatabase.child("posts").push().getKey();
+
         Post newPost = new Post(title, name, time, recipe);
         Map<String, Object> postValues = newPost.toMap();
+
+        //check nodes && how data is being placed in firebase!
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put("/posts/" + key, postValues);
+
+        mDatabase.updateChildren(childUpdates);
     }
 
     // When done with PostActivity, it takes you back to MainActivity.java
     public void onClickBtnSubmitPost(View v) {
-
         //sets variables in case they are empty
         if (etTitle.getText() == null || etTitle.getText().toString().equals("")) {
             etTitle.setText("");
@@ -70,18 +80,8 @@ public class PostActivity extends AppCompatActivity {
         final String time = etTitle.getText().toString();
         final String recipe = etTitle.getText().toString();
 
-        //insert code to upload info to database here
-        /*FIXME:
-        String key = mDatabase.child("posts").push().getKey();
-        Post post = new Post(userId, username, title, body);
-        Map<String, Object> postValues = post.toMap();
-
-        Map<String, Object> childUpdates = new HashMap<>();
-        childUpdates.put("/posts/" + key, postValues);
-        childUpdates.put("/user-posts/" + userId + "/" + key, postValues);
-
-        mDatabase.updateChildren(childUpdates);
-        */
+        //uploads info to database
+        composeNewPost(title, name, time, recipe);
 
         // closes the activity and returns to first screen
         //this.finish();
