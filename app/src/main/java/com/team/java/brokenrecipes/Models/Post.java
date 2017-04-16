@@ -13,8 +13,8 @@ public class Post extends Object{
     //public String uid;
     public String title;
     public String name;
+    public String time;
     public String recipe;
-    public String date;
     //do I need this? public String key;
 
     //if we want to add photos to the post!
@@ -26,16 +26,16 @@ public class Post extends Object{
         //uid = "";
         title = "";
         name = "";
+        time = "";
         recipe = "";
-        date = "";
     }
 
     //constructor with data
-    public Post(String t, String n, String r, String d){
+    public Post(String t, String n, String ti, String r){
         title = t;
         name = n;
+        time = ti;
         recipe = r;
-        date = d;
     }
 
     //firsebase stuff- need to double check with actual firebase guidlines as they may have changed
@@ -44,8 +44,8 @@ public class Post extends Object{
         HashMap<String, Object> result = new HashMap<>();
         result.put("title", title);
         result.put("name", name);
+        result.put("time", time);
         result.put("recipe", recipe);
-        result.put("date", date);
         return result;
     }
 }

@@ -9,6 +9,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.team.java.brokenrecipes.Models.Post;
+
+import java.util.Map;
 
 public class PostActivity extends AppCompatActivity {
 
@@ -41,6 +44,11 @@ public class PostActivity extends AppCompatActivity {
         etRecipe = (EditText) findViewById(R.id.etRecipe);
     }
 
+    private void composeNewPost(String title, String name, String time, String recipe) {
+        Post newPost = new Post(title, name, time, recipe);
+        Map<String, Object> postValues = newPost.toMap();
+    }
+
     // When done with PostActivity, it takes you back to MainActivity.java
     public void onClickBtnSubmitPost(View v) {
 
@@ -62,7 +70,18 @@ public class PostActivity extends AppCompatActivity {
         final String time = etTitle.getText().toString();
         final String recipe = etTitle.getText().toString();
 
-        /*insert code to upload info to database here*/
+        //insert code to upload info to database here
+        /*FIXME:
+        String key = mDatabase.child("posts").push().getKey();
+        Post post = new Post(userId, username, title, body);
+        Map<String, Object> postValues = post.toMap();
+
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put("/posts/" + key, postValues);
+        childUpdates.put("/user-posts/" + userId + "/" + key, postValues);
+
+        mDatabase.updateChildren(childUpdates);
+        */
 
         // closes the activity and returns to first screen
         this.finish();
