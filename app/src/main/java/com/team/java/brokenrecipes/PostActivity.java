@@ -84,6 +84,7 @@ public class PostActivity extends AppCompatActivity {
         */
 
         // closes the activity and returns to first screen
-        this.finish();
+        //this.finish();
+        finish();
     }
 }
