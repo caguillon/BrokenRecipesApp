@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         Button buttonPlayVideo2 = (Button)findViewById(R.id.buttonVideo);
         getWindow().setFormat(PixelFormat.UNKNOWN);
 
-
         VideoView mVideoView2 = (VideoView)findViewById(R.id.videoView);
 
         String uriPath2 = "android.resource://com.team.java.brokenrecipes/" + R.raw.background;
@@ -64,6 +63,22 @@ public class MainActivity extends AppCompatActivity {
         );
 
     }
+
+    // When you click the 'create' button, it launches PostActivity.java
+    public void onClickBtnCreate() {
+        // first parameter is the context, second is the class of the activity to launch
+        //check if this now works; if so, update onClickBtnBrowse!
+        Intent i = new Intent(this, PostActivity.class);//new Intent(MainActivity.this, PostActivity.class);
+        startActivity(i); // brings up the second activity
+    }
+
+    // When you click the 'browse' button, it launches Feed.java
+    public void onClickBtnBrowse() {
+        // first parameter is the context, second is the class of the activity to launch
+        Intent i = new Intent(MainActivity.this, Feed.class);
+        startActivity(i); // brings up the second activity
+    }
+
     //CREATE
     public void moveButton1(){
         View btnCreate = findViewById(R.id.btnCreate);
@@ -91,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
         btnCreate.setLayoutParams(sizeRules);
     }
 
-
     //BROWSE
     public void moveButton2(){
         View btnBrowse = findViewById(R.id.btnBrowse);
@@ -117,22 +131,5 @@ public class MainActivity extends AppCompatActivity {
         sizeRules.width = 180;
         sizeRules.height = 100;
         btnBrowse.setLayoutParams(sizeRules);
-    }
-
-
-
-    // When you click the 'create' button, it launches PostActivity.java
-    public void onClickBtnCreate() {
-        // first parameter is the context, second is the class of the activity to launch
-        //check if this now works; if so, update onClickBtnBrowse!
-        Intent i = new Intent(this, PostActivity.class);//new Intent(MainActivity.this, PostActivity.class);
-        startActivity(i); // brings up the second activity
-    }
-
-    // When you click the 'browse' button, it launches Feed.java
-    public void onClickBtnBrowse() {
-        // first parameter is the context, second is the class of the activity to launch
-        Intent i = new Intent(MainActivity.this, Feed.class);
-        startActivity(i); // brings up the second activity
     }
 }
