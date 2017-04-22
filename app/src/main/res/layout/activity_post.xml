@@ -65,7 +65,7 @@
         android:onClick="onClickBtnSubmitPost"
         android:textStyle="normal|bold|italic"
         android:textIsSelectable="false"
-        android:background="drawable/button_file"
         android:textSize="18sp" />
+    <!--gave me errors as well
+    android:background="drawable/button_file"-->
 </RelativeLayout>
-    <!--Daniela-->

@@ -1,23 +1,20 @@
 package com.team.java.brokenrecipes.Models;
 
+import com.google.firebase.database.Exclude;
+
 import java.util.HashMap;
 import java.util.Map;
 
-//add the import for firebase here!!!
 /*import org.parceler.Parcel;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Parcel*/
 public class Post extends Object{
     //since our variables are public, we dont' need setters and getters!
-    public String uid; //do I need this?
+    //public String uid;
     public String title;
-    public String author;
-    public String ingredients;
-    public String recipeSteps;
-    public String date;
+    public String name;
+    public String time;
+    public String recipe;
     //do I need this? public String key;
 
     //if we want to add photos to the post!
@@ -26,34 +23,29 @@ public class Post extends Object{
 
     //default constructor
     public Post() {
-        uid = "";
+        //uid = "";
         title = "";
-        author = "";
-        ingredients = "";
-        recipeSteps = "";
-        date = "";
+        name = "";
+        time = "";
+        recipe = "";
     }
 
     //constructor with data
-    public Post(String u, String t, String a, String i, String r, String d){
-        uid = u;
+    public Post(String t, String n, String ti, String r){
         title = t;
-        author = a;
-        ingredients = i;
-        recipeSteps = r;
-        date = d;
+        name = n;
+        time = ti;
+        recipe = r;
     }
 
     //firsebase stuff- need to double check with actual firebase guidlines as they may have changed
-    //@Exclude
+    @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("uid", uid);
         result.put("title", title);
-        result.put("author", author);
-        result.put("ingredients", ingredients);
-        result.put("recipeSteps", recipeSteps);
-        result.put("date", date);
+        result.put("name", name);
+        result.put("time", time);
+        result.put("recipe", recipe);
         return result;
     }
 }

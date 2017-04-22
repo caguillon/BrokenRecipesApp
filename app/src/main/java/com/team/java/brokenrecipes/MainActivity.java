@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         android:targetSdkVersion="20"
         android:maxSdkVersion="21" />
         */
-        TransitionManager.beginDelayedTransition(recipesLayout);
+        //TransitionManager.beginDelayedTransition(recipesLayout); this is giving me an error
 
         //change position of button
         RelativeLayout.LayoutParams positionRules = new RelativeLayout.LayoutParams(
@@ -120,7 +120,8 @@ public class MainActivity extends AppCompatActivity {
     // When you click the 'create' button, it launches PostActivity.java
     public void onClickBtnCreate() {
         // first parameter is the context, second is the class of the activity to launch
-        Intent i = new Intent(MainActivity.this, PostActivity.class);
+        //check if this now works; if so, update onCllickBtnBrowse!
+        Intent i = new Intent(this, PostActivity.class);//new Intent(MainActivity.this, PostActivity.class);
         startActivity(i); // brings up the second activity
     }
 

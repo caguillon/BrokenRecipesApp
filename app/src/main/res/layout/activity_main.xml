@@ -24,11 +24,12 @@
         android:background="@drawable/food"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textAllCaps="false"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textStyle="normal|bold|italic"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+        <!--commented it out because it was giving me errors. not sure why
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"-->
 
     <Button
         android:text="Create"
@@ -37,7 +38,6 @@
         android:id="@+id/btnCreate"
         android:background="@drawable/food"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textCursorDrawable="@color/colorPrimary"
         android:textIsSelectable="false"
         tools:textStyle="bold|italic"
@@ -45,6 +45,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="onClickBtnCreate" />
+    <!--commented it out because it was giving me errors. not sure why
+    android:textColor="@color/common_google_signin_btn_text_dark_focused"-->
 
     <VideoView
         android:layout_width="wrap_content"
