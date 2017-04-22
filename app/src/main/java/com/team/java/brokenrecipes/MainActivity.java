@@ -1,18 +1,18 @@
-//Daniela will be working on main
 package com.team.java.brokenrecipes;
 
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.VideoView;
-import android.view.MotionEvent;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.transition.TransitionManager;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//******displays a video file as background(transparent button)
+        //******displays a video file as background(transparent button)
         Button buttonPlayVideo2 = (Button)findViewById(R.id.buttonVideo);
         getWindow().setFormat(PixelFormat.UNKNOWN);
 
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//******moves buttons when screen is touched
+        //******moves buttons when screen is touched
         recipesLayout = (ViewGroup) findViewById(R.id.recipesLayout);
 
         recipesLayout.setOnTouchListener(
@@ -72,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
         android:targetSdkVersion="20"
         android:maxSdkVersion="21" />
         */
-        TransitionManager.beginDelayedTransition(recipesLayout);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            TransitionManager.beginDelayedTransition(recipesLayout);
+        }
 
         //change position of button
         RelativeLayout.LayoutParams positionRules = new RelativeLayout.LayoutParams(
@@ -98,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
         android:targetSdkVersion="20"
         android:maxSdkVersion="21" />
         */
-        //TransitionManager.beginDelayedTransition(recipesLayout); this is giving me an error
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            TransitionManager.beginDelayedTransition(recipesLayout);
+        }
 
         //change position of button
         RelativeLayout.LayoutParams positionRules = new RelativeLayout.LayoutParams(
@@ -120,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
     // When you click the 'create' button, it launches PostActivity.java
     public void onClickBtnCreate() {
         // first parameter is the context, second is the class of the activity to launch
-        //check if this now works; if so, update onCllickBtnBrowse!
+        //check if this now works; if so, update onClickBtnBrowse!
         Intent i = new Intent(this, PostActivity.class);//new Intent(MainActivity.this, PostActivity.class);
         startActivity(i); // brings up the second activity
     }

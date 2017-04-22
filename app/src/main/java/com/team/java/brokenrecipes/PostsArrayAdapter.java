@@ -11,10 +11,6 @@ import com.team.java.brokenrecipes.Models.Post;
 
 import java.util.ArrayList;
 
-/**
- * Created by user on 4/22/2017.
- */
-
 public class PostsArrayAdapter extends ArrayAdapter<Post> {
 
     public PostsArrayAdapter(Context context, ArrayList<Post> posts) {
