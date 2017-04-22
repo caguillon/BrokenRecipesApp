@@ -28,20 +28,18 @@ public class PostsArrayAdapter extends ArrayAdapter<Post> {
         Post post = getItem(position);
 
         // Check if an existing view is being reused, otherwise inflate the view
-        // FIXME: Figure out what item_post must be and where to create it!!
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.item_post, parent, false);
         }
 
         // Lookup view for data population
-        TextView etTitle = (TextView) convertView.findViewById(android.R.id.);
-        EditText etName = (EditText) convertView.findViewById(R.id.tvHome);
-        EditText etTime;
-        EditText etRecipe;
+        TextView tvTitle = (TextView) convertView.findViewById(android.R.id.tvTitle);
+        TextView tvAuthor = (TextView) convertView.findViewById(android.R.id.tvAuthor);
+        TextView tvTime = (TextView) convertView.findViewById(android.R.id.tvTime);
 
         // Populate the data into the template view using the data object
-        tvName.setText(user.name);
-        tvHome.setText(user.hometown);
+        tvTitle.setText(post.title);
+        tvAuthor.setText(post.);
 
         // Return the completed view to render on screen
         return convertView;

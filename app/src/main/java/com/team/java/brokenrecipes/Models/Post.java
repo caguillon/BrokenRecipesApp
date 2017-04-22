@@ -14,6 +14,7 @@ public class Post extends Object{
     //since our variables are public, we dont' need setters and getters!
     public String uid; //do I need this?
     public String title;
+    public String author;
     public String ingredients;
     public String recipeSteps;
     public String date;
@@ -27,15 +28,17 @@ public class Post extends Object{
     public Post() {
         uid = "";
         title = "";
+        author = "";
         ingredients = "";
         recipeSteps = "";
         date = "";
     }
 
     //constructor with data
-    public Post(String u, String t, String i, String r, String d){
+    public Post(String u, String t, String a, String i, String r, String d){
         uid = u;
         title = t;
+        author = a;
         ingredients = i;
         recipeSteps = r;
         date = d;
@@ -47,6 +50,7 @@ public class Post extends Object{
         HashMap<String, Object> result = new HashMap<>();
         result.put("uid", uid);
         result.put("title", title);
+        result.put("author", author);
         result.put("ingredients", ingredients);
         result.put("recipeSteps", recipeSteps);
         result.put("date", date);
