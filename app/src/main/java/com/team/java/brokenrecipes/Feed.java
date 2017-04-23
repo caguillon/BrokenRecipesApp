@@ -1,8 +1,10 @@
 package com.team.java.brokenrecipes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.team.java.brokenrecipes.Models.Post;
@@ -14,7 +16,7 @@ public class Feed extends AppCompatActivity {
     //adapter variables
     private ArrayList<Post> posts;
     private PostsArrayAdapter postAdapter;
-    ListView listView;
+    private ListView listViewItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +26,22 @@ public class Feed extends AppCompatActivity {
         // Setting up the adapter:
         posts = new ArrayList<Post>(); // Construct the data source
         postAdapter = new PostsArrayAdapter(this, posts); // Create the adapter to convert the array to views
-        listView = (ListView) findViewById(R.id.lvItems); // Attach the adapter to a ListView
-        listView.setAdapter(postAdapter);
+        listViewItems = (ListView) findViewById(R.id.lvItems); // Attach the adapter to a ListView
+        listViewItems.setAdapter(postAdapter);
+
+        // To view a single post
+        setupViewListeners();
     }
 
-    // When done with Feed, it takes you back to MainActivity.java
-    public void onSubmit(View v) {
-        // closes the activity and returns to first screen
-        this.finish();
+    private void setupViewListeners() {
+        listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(Feed.this, ViewPostActivity.class);
+                //pass along the text and position of that item to the second activity using "extras"
+                //i.putExtra("username", "foobar");//edit this
+                startActivity(i);
+            }
+        });
     }
 }

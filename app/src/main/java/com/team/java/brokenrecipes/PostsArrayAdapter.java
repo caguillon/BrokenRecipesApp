@@ -28,7 +28,7 @@ public class PostsArrayAdapter extends ArrayAdapter<Post> {
         }
 
         // Step 3: Lookup view for data population
-        TextView tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
+        TextView tvTitle = (TextView) convertView.findViewById(R.id.tvRTitle);
         TextView tvAuthor = (TextView) convertView.findViewById(R.id.tvAuthor);
         TextView tvTime = (TextView) convertView.findViewById(R.id.tvTime);
 
