@@ -2,28 +2,23 @@ package com.team.java.brokenrecipes.Models;
 
 import com.google.firebase.database.Exclude;
 
+import org.parceler.Parcel;
+
 import java.util.HashMap;
 import java.util.Map;
 
-/*import org.parceler.Parcel;
-
-@Parcel*/
+@Parcel
 public class Post extends Object{
     //since our variables are public, we dont' need setters and getters!
-    //public String uid;
+    public String uid;
     public String title;
     public String name;
     public String time;
     public String recipe;
-    //do I need this? public String key;
-
-    //if we want to add photos to the post!
-    /*public String fileName; //from firebase??
-    public String photoUrl;*/
 
     //default constructor
     public Post() {
-        //uid = "";
+        uid = "";
         title = "";
         name = "";
         time = "";
@@ -31,7 +26,8 @@ public class Post extends Object{
     }
 
     //constructor with data
-    public Post(String t, String n, String ti, String r){
+    public Post(String u, String t, String n, String ti, String r){
+        uid = u;
         title = t;
         name = n;
         time = ti;
@@ -42,6 +38,7 @@ public class Post extends Object{
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
+        result.put("uid", uid);
         result.put("title", title);
         result.put("name", name);
         result.put("time", time);

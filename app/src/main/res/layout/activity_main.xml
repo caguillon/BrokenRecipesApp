@@ -50,12 +50,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="Person logged in"
         android:id="@+id/tvGname"
-        android:layout_marginBottom="50dp"
-        android:layout_above="@+id/btnCreate"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_alignTop="@+id/tvInfo"
+        android:layout_alignLeft="@+id/btnCreate"
+        android:layout_alignStart="@+id/btnCreate" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signed in: "
+        android:id="@+id/tvInfo"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/btnCreate"
+        android:layout_alignEnd="@+id/btnCreate"
+        android:layout_marginRight="58dp"
+        android:layout_marginEnd="58dp" />
 
     <!--<Button
         android:layout_width="wrap_content"

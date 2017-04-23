@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import com.team.java.brokenrecipes.Models.Post;
 
+import org.parceler.Parcels;
+
 public class ViewPostActivity extends AppCompatActivity {
 
     private Post post;
@@ -14,6 +16,8 @@ public class ViewPostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_post);
+
+        post = Parcels.unwrap(getIntent().getParcelableExtra("post"));
 
         TextView tvRTitle = (TextView) findViewById(R.id.tvRTitle);
         TextView tvRTime = (TextView) findViewById(R.id.tvRTime);
@@ -24,5 +28,11 @@ public class ViewPostActivity extends AppCompatActivity {
         tvRTime.setText(post.time);
         tvRName.setText(post.name);
         tvRRecipe.setText(post.recipe);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
     }
 }
