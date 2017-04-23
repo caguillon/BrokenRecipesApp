@@ -9,17 +9,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity">
-            android:screenOrientation="portrait"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Feed" > android:screenOrientation="portrait" </activity>>
-        <activity android:name=".PostActivity" > android:screenOrientation="portrait" </activity>
-        <activity android:name=".ViewPostActivity" > android:screenOrientation="portrait" </activity>
-        <activity android:name=".MainActivity"> android:screenOrientation="portrait" </activity>
+        <activity android:name=".Feed" />
+        <activity android:name=".PostActivity" />
+        <activity android:name=".ViewPostActivity" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
