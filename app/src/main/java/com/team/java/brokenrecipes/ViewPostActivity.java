@@ -29,4 +29,10 @@ public class ViewPostActivity extends AppCompatActivity {
         tvRName.setText(post.name);
         tvRRecipe.setText(post.recipe);
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
 }
