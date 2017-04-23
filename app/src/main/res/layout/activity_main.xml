@@ -4,18 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.team.java.brokenrecipes.MainActivity"
-    android:id="@+id/recipesLayout">
-    <!---->
+    android:id="@+id/recipesLayout"
+    android:background="@drawable/paint">
 
     <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create"
+        android:id="@+id/btnCreate"
+        android:onClick="onClickBtnCreate"
+        android:layout_above="@+id/btnBrowse"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="56dp"
+        android:background="#FFFFFF"
+        android:textColor="#82D173"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Browse"
+        android:id="@+id/btnBrowse"
+        android:onClick="onClickBtnBrowse"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnCreate"
+        android:layout_alignStart="@+id/btnCreate"
+        android:layout_marginBottom="195dp"
+        android:background="#FFFFFF"
+        android:textColor="#82D173"
+        android:textStyle="bold" />
+
+    <!--<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/buttonVideo"
-        android:background="@android:color/transparent" />
+        android:background="@android:color/transparent" />-->
 
-    <Button
+    <!--<Button
         android:text="Browse"
         android:layout_width="160dp"
         android:layout_height="60dp"
@@ -28,10 +55,10 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-        <!--commented it out because it was giving me errors. not sure why
+        commented it out because it was giving me errors. not sure why
         android:textColor="@color/common_google_signin_btn_text_dark_focused"-->
 
-    <Button
+    <!--<Button
         android:text="Create"
         android:layout_width="160dp"
         android:layout_height="60dp"
@@ -45,10 +72,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="onClickBtnCreate" />
-    <!--commented it out because it was giving me errors. not sure why
+    commented it out because it was giving me errors. not sure why
     android:textColor="@color/common_google_signin_btn_text_dark_focused"-->
 
-    <VideoView
+    <!--<VideoView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/videoView"
@@ -56,7 +83,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-    <!---android:textSize="30sp"-->
+    android:textSize="30sp"-->
 
 </RelativeLayout>
-    <!--Daniela-->
