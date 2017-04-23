@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Broken Recipes</string>
+    <string name="log_out">Log Out</string>
+    <string name="browse">Browse</string>
+    <string name="create">Create</string>
 
     <!--<string name="message_text">Hello!</string>
     <string name="button_text">dasdas</string>-->
