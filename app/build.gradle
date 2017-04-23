@@ -35,6 +35,9 @@ dependencies {
 
     //google oAuth
     compile 'com.google.android.gms:play-services-auth:10.2.1'
+
+    //look this up
+    //compile 'com.github.bumptech.glide:glide:3.7.0'
 }
 
 //firebase

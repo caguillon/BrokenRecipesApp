@@ -10,7 +10,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create"
+        android:text="@string/create"
         android:id="@+id/btnCreate"
         android:onClick="onClickBtnCreate"
         android:layout_above="@+id/btnBrowse"
@@ -23,16 +23,39 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Browse"
+        android:text="@string/browse"
         android:id="@+id/btnBrowse"
         android:onClick="onClickBtnBrowse"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/btnCreate"
-        android:layout_alignStart="@+id/btnCreate"
-        android:layout_marginBottom="195dp"
         android:background="#FFFFFF"
         android:textColor="#82D173"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/btnCreate"
+        android:layout_alignStart="@+id/btnCreate" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_out"
+        android:id="@+id/btnLogout"
+        android:onClick="onClickBtnLogout"
+        android:background="#FFFFFF"
+        android:textColor="#82D173"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnBrowse"
+        android:layout_alignLeft="@+id/btnBrowse"
+        android:layout_alignStart="@+id/btnBrowse"
+        android:layout_marginTop="56dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/tvGname"
+        android:layout_marginBottom="50dp"
+        android:layout_above="@+id/btnCreate"
+        android:layout_centerHorizontal="true" />
 
     <!--<Button
         android:layout_width="wrap_content"
