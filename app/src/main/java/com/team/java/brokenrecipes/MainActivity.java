@@ -153,6 +153,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     }
 
+    @Override
+    public void onBackPressed() {
+        
+    }
+
     //CREATE
     /*public void moveButton1(){
         View btnCreate = findViewById(R.id.btnCreate);
