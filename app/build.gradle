@@ -36,6 +36,9 @@ dependencies {
     //google oAuth
     compile 'com.google.android.gms:play-services-auth:10.2.1'
 
+    compile 'org.parceler:parceler-api:1.1.6'
+    annotationProcessor 'org.parceler:parceler:1.1.6'
+
     //look this up
     //compile 'com.github.bumptech.glide:glide:3.7.0'
 }

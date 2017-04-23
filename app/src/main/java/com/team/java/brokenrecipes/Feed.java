@@ -9,6 +9,8 @@ import android.widget.ListView;
 
 import com.team.java.brokenrecipes.Models.Post;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 
 public class Feed extends AppCompatActivity {
@@ -24,7 +26,7 @@ public class Feed extends AppCompatActivity {
         setContentView(R.layout.activity_feed);
 
         // Setting up the adapter:
-        posts = new ArrayList<Post>(); // Construct the data source
+        posts = new ArrayList<>(); // Construct the data source
         postAdapter = new PostsArrayAdapter(this, posts); // Create the adapter to convert the array to views
         listViewItems = (ListView) findViewById(R.id.lvItems); // Attach the adapter to a ListView
         listViewItems.setAdapter(postAdapter);
@@ -39,7 +41,7 @@ public class Feed extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(Feed.this, ViewPostActivity.class);
                 //pass along the text and position of that item to the second activity using "extras"
-                //i.putExtra("username", "foobar");//edit this
+                i.putExtra("post", Parcels.wrap(posts.get(position)));
                 startActivity(i);
             }
         });

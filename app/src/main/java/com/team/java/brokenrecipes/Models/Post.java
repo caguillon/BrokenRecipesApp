@@ -2,12 +2,12 @@ package com.team.java.brokenrecipes.Models;
 
 import com.google.firebase.database.Exclude;
 
+import org.parceler.Parcel;
+
 import java.util.HashMap;
 import java.util.Map;
 
-/*import org.parceler.Parcel;
-
-@Parcel*/
+@Parcel
 public class Post extends Object{
     //since our variables are public, we dont' need setters and getters!
     public String uid;
