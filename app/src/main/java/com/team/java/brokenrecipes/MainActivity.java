@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-
     }
 
     // When you click the 'create' button, it launches PostActivity.java

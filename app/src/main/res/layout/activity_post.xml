@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.team.java.brokenrecipes.PostActivity">
+    tools:context="com.team.java.brokenrecipes.PostActivity"
+    android:background="@drawable/paint">
 
     <EditText
         android:layout_width="wrap_content"
@@ -63,9 +64,11 @@
         android:id="@+id/btnSubmitPost"
         android:layout_alignParentBottom="true"
         android:onClick="onClickBtnSubmitPost"
-        android:textStyle="normal|bold|italic"
         android:textIsSelectable="false"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:background="#FFFFFF"
+        android:textColor="#82D173"
+        android:textStyle="bold" />
     <!--gave me errors as well
     android:background="drawable/button_file"-->
 </RelativeLayout>
