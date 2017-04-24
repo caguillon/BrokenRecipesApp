@@ -10,14 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -25,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private GoogleApiClient googleApiClient;
     private TextView tvGName;
+
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener firebaseAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,44 +44,23 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-        //******displays a video file as background(transparent button)
-        /*Button buttonPlayVideo2 = (Button)findViewById(R.id.buttonVideo);
-        getWindow().setFormat(PixelFormat.UNKNOWN);
-
-        VideoView mVideoView2 = (VideoView)findViewById(R.id.videoView);
-
-        String uriPath2 = "android.resource://com.team.java.brokenrecipes/" + R.raw.background;
-        Uri uri2 = Uri.parse(uriPath2);
-        mVideoView2.setVideoURI(uri2);
-        mVideoView2.requestFocus();
-        mVideoView2.start();
-
-        buttonPlayVideo2.setOnClickListener(new Button.OnClickListener(){
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
-            public void onClick(View v){
-                VideoView mVideoView2 = (VideoView) findViewById(R.id.videoView);
-                //VideoView mVideoView = new VideoView(this);
-                String uriPath = "android.resource://com.team.java.brokenrecipes/" + R.raw.background;
-                Uri uri2 = Uri.parse(uriPath);
-                mVideoView2.setVideoURI(uri2);
-                mVideoView2.requestFocus();
-                mVideoView2.start();
-            }
-        });
-
-        //******moves buttons when screen is touched
-        recipesLayout = (ViewGroup) findViewById(R.id.recipesLayout);
-
-        recipesLayout.setOnTouchListener(
-                new RelativeLayout.OnTouchListener(){
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event){
-                        moveButton1();  //moves create button to center
-                        moveButton2();  //moves browse button to center
-                        return false;
-                    }
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if(user != null){
+                    setUserData(user);
                 }
-        );*/
+                else{
+                    goLogInScreen();
+                }
+            }
+        };
+    }
+
+    private void setUserData(FirebaseUser user) {
+        tvGName.setText(user.getDisplayName());
     }
 
     // When you click the 'create' button, it launches PostActivity.java
@@ -100,32 +81,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     @Override
     protected void onStart() {
         super.onStart();
-
-        OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
-        if(opr.isDone()){
-            GoogleSignInResult result = opr.get();
-            handleSignInResult(result);
-        }
-        else{
-            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
-                @Override
-                public void onResult(@NonNull GoogleSignInResult googleSignInResult) {
-                    handleSignInResult(googleSignInResult);
-                }
-            });
-        }
-    }
-
-    private void handleSignInResult(GoogleSignInResult result) {
-        if(result.isSuccess()){
-            // Their account info
-            GoogleSignInAccount account = result.getSignInAccount();
-            // How to get the info
-            tvGName.setText(account.getDisplayName());
-        }
-        else{
-            goLogInScreen();
-        }
+        firebaseAuth.addAuthStateListener(firebaseAuthListener);
     }
 
     private void goLogInScreen() {
@@ -135,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
     public void onClickBtnLogout(View view){
+        firebaseAuth.signOut();
         Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
             @Override
             public void onResult(@NonNull Status status) {
@@ -143,6 +100,21 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "Could not log out", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    public void onClickBtnRevoke(View view) {
+        firebaseAuth.signOut();
+        Auth.GoogleSignInApi.revokeAccess(googleApiClient).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(@NonNull Status status) {
+                if(status.isSuccess()){
+                    goLogInScreen();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Could not revoke", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -158,57 +130,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     }
 
-    //CREATE
-    /*public void moveButton1(){
-        View btnCreate = findViewById(R.id.btnCreate);
-        /************************************************************
-        <uses-sdk android:minSdkVersion="14"
-        android:targetSdkVersion="20"
-        android:maxSdkVersion="21" />
-        *************************************************************
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            TransitionManager.beginDelayedTransition(recipesLayout);
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(firebaseAuthListener != null){
+            firebaseAuth.removeAuthStateListener(firebaseAuthListener);
         }
-
-        //change position of button
-        RelativeLayout.LayoutParams positionRules = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        positionRules.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
-        positionRules.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
-        positionRules.addRule(RelativeLayout.ALIGN_PARENT_END, RelativeLayout.TRUE);
-        btnCreate.setLayoutParams(positionRules);
-
-        //change size of button
-        ViewGroup.LayoutParams sizeRules = btnCreate.getLayoutParams();
-        sizeRules.width = 180;
-        sizeRules.height = 100;
-        btnCreate.setLayoutParams(sizeRules);
     }
-
-    //BROWSE
-    public void moveButton2(){
-        View btnBrowse = findViewById(R.id.btnBrowse);
-        ************************************************
-        <uses-sdk android:minSdkVersion="14"
-        android:targetSdkVersion="20"
-        android:maxSdkVersion="21" />
-        ************************************************
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            TransitionManager.beginDelayedTransition(recipesLayout);
-        }
-
-        //change position of button
-        RelativeLayout.LayoutParams positionRules = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        positionRules.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
-        positionRules.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
-        positionRules.addRule(RelativeLayout.ALIGN_PARENT_END, RelativeLayout.TRUE);
-        btnBrowse.setLayoutParams(positionRules);
-
-        //change size of button
-        ViewGroup.LayoutParams sizeRules = btnBrowse.getLayoutParams();
-        sizeRules.width = 180;
-        sizeRules.height = 100;
-        btnBrowse.setLayoutParams(sizeRules);
-    }*/
 }
