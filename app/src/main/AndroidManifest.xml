@@ -18,7 +18,7 @@
         <activity android:name=".Feed" />
         <activity android:name=".PostActivity" />
         <activity android:name=".ViewPostActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
