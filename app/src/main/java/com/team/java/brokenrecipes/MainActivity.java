@@ -109,6 +109,20 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         });
     }
 
+    public void onClickBtnRevoke(View view) {
+        Auth.GoogleSignInApi.revokeAccess(googleApiClient).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(@NonNull Status status) {
+                if(status.isSuccess()){
+                    goLogInScreen();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Could not revoke", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 

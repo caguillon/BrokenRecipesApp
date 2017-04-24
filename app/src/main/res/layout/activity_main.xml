@@ -70,4 +70,17 @@
         android:layout_marginRight="58dp"
         android:layout_marginEnd="58dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Revoke"
+        android:id="@+id/btnRevoke"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"
+        android:onClick="onClickBtnRevoke"
+        android:background="#FFFFFF"
+        android:textColor="#82D173"
+        android:textStyle="bold" />
+
 </RelativeLayout>
